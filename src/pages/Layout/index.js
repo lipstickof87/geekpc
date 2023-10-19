@@ -1,4 +1,17 @@
-const Layout = () => {
-  return <div>layout</div>
-}
-export default Layout
+import React from 'react';
+import { Layout, Space } from 'antd';
+
+const { Header, Footer, Sider, Content } = Layout;
+const MyLayout = () => {
+  return (
+  <Layout>
+  <Header>header</Header>
+  <Layout>
+    <Sider>left sidebar</Sider>
+    <Content>main content</Content>
+    <Sider>right sidebar</Sider>
+  </Layout>
+  <Footer>footer</Footer>
+</Layout>
+  )
+export default MyLayout
