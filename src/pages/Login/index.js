@@ -6,11 +6,11 @@ import { useNavigate } from 'react-router-dom';
 import { useStore } from '@/store'
 
 const Login = () => {
+     const { loginStore } = useStore()
    const navigate = useNavigate()
   const onFinish = async (values) => {
     const { mobile, code } = values
     console.log(values)
-   
     try {
       await loginStore.login({ mobile, code })
       //console.log(loginStore.token)
@@ -25,7 +25,7 @@ const Login = () => {
   }
 
   // const navigate = useNavigate()
-  const { loginStore } = useStore()
+ 
 
   return (
     <div className="login">

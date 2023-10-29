@@ -16,7 +16,7 @@ class LoginStore {
     this.token = res.data.data.token
     setToken(res.data.data.token)
 
-    //console.log(this.token)
+    console.log(this.token)
     
     console.log(res)
   }

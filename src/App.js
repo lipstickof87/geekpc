@@ -1,25 +1,36 @@
-
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import { AuthRoute } from './components/AuthRoute';
-import Login from '@/pages/Login/index.js'
-import Layout from '@/pages/Layout'
+import Login from '@/pages/Login'
+import MyLayout from '@/pages/MyLayout'
+import { Home, Publish, Article } from './pages';
+import { HistoryRouter,history } from './utils/history';
+
 function App() {
   return (
-    <BrowserRouter>
+    <HistoryRouter>
+      <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path='/layout' element={
+          <Route path='/' element={
           <AuthRoute>
-               <Layout />
+               <MyLayout />
           </AuthRoute>
-           
-          } />
+          } >
+            {/* 二级路由默认页面 */}
+            <Route index element={<Home></Home>}></Route>
+            <Route path="article" element={<Article></Article>
+            }></Route>
+            <Route path="publish" element={<Publish></Publish>}></Route>
+          </Route>
+          
           <Route path='/login' element={<Login/>} />
 
         </Routes>
       </div>
     </BrowserRouter>
   
+    </HistoryRouter>
+    
   );
 }
 
